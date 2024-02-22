@@ -59,7 +59,7 @@ class DB:
         return new_user
 
     def find_user_by(self, **kwargs: Dict[str, str]) -> User:
-                                                                                        """Find a user by specified attributes.
+        """Find a user by specified attributes.
 
         Raises:
             error: NoResultFound: When no results are found.
@@ -94,7 +94,7 @@ class DB:
             None
         """
         try:
-                                                                                        # Find the user with the given user ID
+            # Find the user with the given user ID
             user = self.find_user_by(id=user_id)
         except NoResultFound:
             raise ValueError("User with id {} not found".format(user_id))
@@ -108,7 +108,7 @@ class DB:
             setattr(user, key, value)
 
         try:
-                                                                                        # Commit changes to the database
+            # Commit changes to the database
             self._session.commit()
         except InvalidRequestError:
             # Raise error if an invalid request is made
